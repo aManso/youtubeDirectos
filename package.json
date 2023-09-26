@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start-prod": "ng build --configuration=production",
-    "start-github-pages": "ng build --configuration=production --output-path docs",
+    "start-github-pages": "ng build --configuration=production --output-path docs --base-href /youtubeDirectos/",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
