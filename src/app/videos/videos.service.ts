@@ -18,7 +18,7 @@ export class ChannelsService {
      * ....
      * @returns an Observable with a list of channels as response
      */
-    public getChannels(youtubeOptions?: YoutubeOptions):Observable<any> {
+    public getVideos(youtubeOptions?: YoutubeOptions):Observable<any> {
       const youtubeUrl = youtubeOptions ? this._buildUrlWithParameters(this.YOUTUBE_ONLINE_CHANNELS_API, youtubeOptions) : this.YOUTUBE_ONLINE_CHANNELS_API;
       return this._http.get(youtubeUrl).pipe(
         catchError((e)=> { return of(

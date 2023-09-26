@@ -22,7 +22,7 @@ export class VideosEffects {
         ofType(ACTIONS.loadingVideos),
         tap(()=> {this._store.dispatch(actionLoadingPages())}),
         mergeMap(() => 
-            this._channelsService.getChannels()
+            this._channelsService.getVideos()
             .pipe(
                 map(response => ( {type: ACTIONS.loadedVideos, ...this._buildResponse(response) } )),
                 tap((response)=> {
@@ -77,7 +77,7 @@ export class VideosEffects {
         tap(()=> {this._store.dispatch(actionLoadingPages())}),
         mergeMap((action) => {
             const filter = this._buildFilter(action);
-            return this._channelsService.getChannels(filter)
+            return this._channelsService.getVideos(filter)
             .pipe(
                 map(response => ( {type: ACTIONS.loadedVideos, ...this._buildResponse(response) } )),
                 tap((response)=> {
