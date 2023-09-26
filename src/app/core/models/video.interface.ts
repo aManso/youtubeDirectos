@@ -15,6 +15,7 @@ export interface VideoModel {
 }
 
 export interface YoutubeOptions {
+    nextPageToken?: string,
     order?: 'date'|'rating'|'relevance'|'title'|'viewCount',
     q?: string,
     topic: string,
