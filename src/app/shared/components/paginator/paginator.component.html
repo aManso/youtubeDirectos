@@ -1,7 +1,7 @@
 <div id="paginator-container">
     
     
-    <p-button icon="pi pi-angle-left" (click)="previousPage()" [ngClass]="{'disabled-paginator': nextPageToken}"></p-button>
+    <p-button icon="pi pi-angle-left" (click)="previousPage()" [ngClass]="{'disabled-paginator': !prevPageToken}"></p-button>
 
     <span>Resultados totales {{totalResults}}</span>
 

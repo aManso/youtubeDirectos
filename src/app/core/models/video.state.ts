@@ -6,5 +6,6 @@ export interface VideosState {
     videos: ReadonlyArray<VideoModel>,
     totalResults?: number,
     resultsInPage?: Number,
+    prevPageToken?: string,
     nextPageToken?: string,
 }

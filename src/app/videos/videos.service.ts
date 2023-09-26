@@ -211,7 +211,8 @@ export class ChannelsService {
 
     private _buildUrlWithParameters(initialUrl: string, options: YoutubeOptions): string {
       let url = initialUrl;
-      url = options.nextPageToken ? url + '&nextPageToken=' + options.nextPageToken : url;
+      url = options.prevPageToken ? url + '&pageToken=' + options.prevPageToken : url;
+      url = options.nextPageToken ? url + '&pageToken=' + options.nextPageToken : url;
       url = options.q ? url + '&q=' + options.q : url;
       url = options.topic ? url + '&topicId=' + options.topic : url;
       url = options.order ? url + '&order=' + options.order : url;

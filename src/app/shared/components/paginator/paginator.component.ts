@@ -22,6 +22,7 @@ import { selectPaginator, selectPaginatorLoading } from 'src/app/state/selectors
 export class PaginatorComponent implements OnInit {
   public loading$: Observable<boolean> = new Observable();
   public totalResults: number|undefined;
+  public prevPageToken: string|undefined;
   public nextPageToken: string|undefined;
 
   public constructor(
@@ -33,12 +34,13 @@ export class PaginatorComponent implements OnInit {
     this.loading$ = this._store.select(selectPaginatorLoading);
     this._store.select(selectPaginator).pipe(map((response: any)=> response.paginator)).subscribe((paginatorResponse: PaginatorState)=> {
       this.totalResults = paginatorResponse.totalResults;
+      this.prevPageToken = paginatorResponse.prevPageToken;
       this.nextPageToken = paginatorResponse.nextPageToken;
     });
   }
 
   public previousPage() {
-
+    this._store.dispatch(actionSearchingVideos({ nextPageToken: this.prevPageToken}));
   }
 
   public nextPage() {

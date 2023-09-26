@@ -39,6 +39,7 @@ export class VideosEffects {
             filter: undefined,
             totalResults: youtubeResp.pageInfo.totalResults,
             resultsInPage: youtubeResp.pageInfo.resultsPerPage,
+            prevPageToken: youtubeResp.prevPageToken,
             nextPageToken: youtubeResp.nextPageToken
         }
     }
@@ -63,6 +64,7 @@ export class VideosEffects {
 
     private _buildPaginatorModel(youtubeResp: any): PaginatorState {
         return {
+            prevPageToken: youtubeResp.prevPageToken,
             nextPageToken: youtubeResp.nextPageToken,
             resultsInPage: youtubeResp.resultsInPage,
             totalResults: youtubeResp.totalResults,
@@ -87,6 +89,7 @@ export class VideosEffects {
 
     private _buildFilter(action: any): YoutubeOptions {
         return {
+            prevPageToken: action.prevPageToken,
             nextPageToken: action.nextPageToken,
             q: action.q,
             topic: action.topic?.value,
