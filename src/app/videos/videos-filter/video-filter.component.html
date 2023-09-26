@@ -1,0 +1,40 @@
+<div class="youtube-filter">
+    <img id="youtube-logo" src="/assets/youtube-logo.avif" alt="">
+    <form id="youtube-filter__filters" *ngIf="filterForm" [formGroup]="filterForm">
+        <input id="youtube-filter__query" type="text" pInputText placeholder="buscar ..." formControlName="q" />
+        <p-dropdown [options]="topics" formControlName="topic" [filter]="true" filterBy="name" [showClear]="true" placeholder="Tema" optionLabel="name"></p-dropdown>
+        <p-dropdown [options]="order" formControlName="order" placeholder="Orden"></p-dropdown>
+        <p-dropdown [options]="regionCode" formControlName="regionCode" placeholder="Region">
+            <ng-template pTemplate="selectedItem" let-region>
+                <div class="flex align-items-center gap-2" *ngIf="filterForm.get('regionCode')">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + region.toLowerCase()" style="width: 18px"/>
+                    <span>{{ filterForm.get('regionCode')?.value }}</span>
+                </div>
+            </ng-template>
+            <ng-template let-region pTemplate="item">
+                <div class="flex align-items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + region.toLowerCase()" style="width: 18px"/>
+                    <span>{{ region }}</span>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        <p-dropdown [options]="relevanceLanguage" formControlName="relevanceLanguage" placeholder="Lenguaje">
+            <ng-template pTemplate="selectedItem" let-lang>
+                <div class="flex align-items-center gap-2" *ngIf="filterForm.get('relevanceLanguage')">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + lang.toLowerCase()" style="width: 18px"/>
+                    <span>{{ filterForm.get('relevanceLanguage')?.value }}</span>
+                </div>
+            </ng-template>
+            <ng-template let-lang pTemplate="item">
+                <div class="flex align-items-center gap-2">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + lang.toLowerCase()" style="width: 18px"/>
+                    <span>{{ lang }}</span>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        <p-dropdown [options]="videoCaption" formControlName="videoCaption" placeholder="Subtitulos"></p-dropdown>
+        <p-dropdown [options]="videoDuration" formControlName="videoDuration" placeholder="Duración"></p-dropdown>
+        <p-button icon="pi pi-search surface-ground" (click)="search()"></p-button>
+        <p-button icon="pi pi-times surface-ground" (click)="reset()"></p-button>
+    </form>
+</div>

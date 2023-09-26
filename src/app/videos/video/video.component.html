@@ -1,0 +1,18 @@
+<div id="video__container">
+    <div id="video__thumbnail">
+        <a [href]="'https://www.youtube.com/embed/'+video.id" target="_blank">
+            <img [src]="video.thumbnail" [alt]="video.description"/>
+        </a>
+    </div>
+    <div id="video__details">
+        <h3 id="video__title"><a [href]="'https://www.youtube.com/embed/'+video.id">{{video.title}}</a></h3>
+        <div id="video__channel-details">
+            <div id="video__channel-name">
+                <a [href]="'https://www.youtube.com/'+video.channel.url" target="_blank">{{video.channel.title}}</a>
+            </div>
+            <div id="video__started-time">
+                <span>Directo comenzado {{video.publishTime | date: 'short'}}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+#video__container {
+    max-width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    border: solid 1px white;
+    border-radius: 10px;
+    background: red;
+}
+
+#video__thumbnail img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#video__details {
+    color: white;
+    padding: 10px;
+    text-align: start;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#video__title {
+    font-size: 20px;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#video__channel-name a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+#video__started-time {
+    font-size: 14px;
+}

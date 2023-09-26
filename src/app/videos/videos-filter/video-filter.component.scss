@@ -1,0 +1,46 @@
+.youtube-filter {
+    min-height: 80px;
+    background-color: red;
+    display: flex;
+    padding: 20px;
+}
+
+#youtube-logo {
+    height: 90%;
+    max-height: 80px;
+    background: aliceblue;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+#youtube-filter__filters {
+    padding-left: 20px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#youtube-filter__query {
+    height: 50px;
+}
+
+.flag {
+    background: url(https://primefaces.org/cdn/primeng/images/flag/flags_responsive.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+// get it from http://www.primefaces.org:8080/showcase/ui/data/datatable/multiViewState.xhtml?jfwid=3851f
+.flag-gb, .flag-en {
+    background-position: 0 92.561983%;
+}
+
+.flag-es {
+    background-position: 0 26.859504%;
+}
+
+.flag-us {
+    background-position: 0 93.38843%;
+}

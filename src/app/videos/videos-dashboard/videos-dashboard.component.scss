@@ -1,0 +1,14 @@
+.container {
+    margin: 40px 70px;
+}
+
+.video {
+    overflow: hidden;
+}
+
+@media (max-width: 575px) {
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+  }
