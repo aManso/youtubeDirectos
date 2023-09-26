@@ -1,5 +1,5 @@
 <div class="youtube-filter">
-    <img id="youtube-logo" src="/assets/youtube-logo.avif" alt="">
+    <img id="youtube-logo" src="assets/youtube-logo.avif" alt="">
     <form id="youtube-filter__filters" *ngIf="filterForm" [formGroup]="filterForm">
         <input id="youtube-filter__query" type="text" pInputText placeholder="buscar ..." formControlName="q" />
         <p-dropdown [options]="topics" formControlName="topic" [filter]="true" filterBy="name" [showClear]="true" placeholder="Tema" optionLabel="name"></p-dropdown>

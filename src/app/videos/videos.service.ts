@@ -8,7 +8,7 @@ const API_KEY= "AIzaSyDed7wJOFHvc2k75sn13DZiO9ZMiaUTFgg";
 
 @Injectable({ providedIn: "root"})
 export class ChannelsService {
-    private readonly YOUTUBE_ONLINE_CHANNELS_API = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&eventType=live&maxResults=1&safeSearch=none&topicId=/m/0gywn&type=video&key='+API_KEY;
+    private readonly YOUTUBE_ONLINE_CHANNELS_API = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&eventType=live&maxResults=4&safeSearch=none&type=video&key='+API_KEY;
     
     public constructor(
         private readonly _http: HttpClient,
