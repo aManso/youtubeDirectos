@@ -64,6 +64,7 @@ export class VideosEffects {
 
     private _buildPaginatorModel(youtubeResp: any): PaginatorState {
         return {
+            filter: youtubeResp.filter,
             prevPageToken: youtubeResp.prevPageToken,
             nextPageToken: youtubeResp.nextPageToken,
             resultsInPage: youtubeResp.resultsInPage,
@@ -80,7 +81,7 @@ export class VideosEffects {
             .pipe(
                 map(response => ( {type: ACTIONS.loadedVideos, ...this._buildResponse(response) } )),
                 tap((response)=> {
-                    this._store.dispatch(actionLoadedPages(this._buildPaginatorModel(response)));
+                    this._store.dispatch(actionLoadedPages(this._buildPaginatorModel({...response, filter})));
                 }),
                 catchError(() => EMPTY)
             )

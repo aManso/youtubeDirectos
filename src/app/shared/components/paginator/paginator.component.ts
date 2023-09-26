@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 
 import { map, Observable } from 'rxjs';
 import { PaginatorState } from 'src/app/core/models/paginator.state';
+import { YoutubeOptions } from 'src/app/core/models/video.interface';
 import { actionSearchingVideos } from 'src/app/state/actions/videos.actions';
 import { selectPaginator, selectPaginatorLoading } from 'src/app/state/selectors/paginator.selector';
 
@@ -24,6 +25,7 @@ export class PaginatorComponent implements OnInit {
   public totalResults: number|undefined;
   public prevPageToken: string|undefined;
   public nextPageToken: string|undefined;
+  public filter: YoutubeOptions|undefined;
 
   public constructor(
     private readonly _store: Store<any>,
@@ -36,14 +38,15 @@ export class PaginatorComponent implements OnInit {
       this.totalResults = paginatorResponse.totalResults;
       this.prevPageToken = paginatorResponse.prevPageToken;
       this.nextPageToken = paginatorResponse.nextPageToken;
+      this.filter = paginatorResponse.filter;
     });
   }
 
   public previousPage() {
-    this._store.dispatch(actionSearchingVideos({ nextPageToken: this.prevPageToken}));
+    this._store.dispatch(actionSearchingVideos({ ...this.filter, nextPageToken: this.prevPageToken}));
   }
 
   public nextPage() {
-    this._store.dispatch(actionSearchingVideos({ nextPageToken: this.nextPageToken}));
+    this._store.dispatch(actionSearchingVideos({ ...this.filter, nextPageToken: this.nextPageToken}));
   }
 }
