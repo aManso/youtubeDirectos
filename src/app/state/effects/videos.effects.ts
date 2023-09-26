@@ -87,6 +87,7 @@ export class VideosEffects {
 
     private _buildFilter(action: any): YoutubeOptions {
         return {
+            nextPageToken: action.nextPageToken,
             q: action.q,
             topic: action.topic?.value,
             order: action.order,
